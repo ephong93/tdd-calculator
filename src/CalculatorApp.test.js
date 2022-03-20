@@ -30,27 +30,27 @@ describe('CalculatorApp', () => {
 })
 
 describe('update to zero', () => {
-  it('initially updates value in panel when clicking a button', () => {
+  it('1 -> 1', () => {
     render(<CalculatorApp />)
     fireEvent.click(getButton('1'))
     expect(getPanel().textContent).toBe('1')
   })
   
-  it('does not update value when initially clicking 0', () => {
+  it('00 -> 0', () => {
     render(<CalculatorApp />)
     fireEvent.click(getButton('0'))
     expect(getPanel().textContent).toBe('0')
     fireEvent.click(getButton('0'))
     expect(getPanel().textContent).toBe('0')
   })
-  it('adds sign properly', () => {
+  it('+-0 -> -0', () => {
     render(<CalculatorApp />)
     fireEvent.click(getButton('+'))
     expect(getPanel().textContent).toBe('0')
     fireEvent.click(getButton('-'))
     expect(getPanel().textContent).toBe('-0')
   })
-  it('append to negative zero', () => {
+  it('-1 -> -1', () => {
     render(<CalculatorApp />)
     fireEvent.click(getButton('-'))
     fireEvent.click(getButton('1'))
@@ -67,13 +67,13 @@ describe('update to zero', () => {
 })
 
 describe('append number', () => {
-  it('appends value in panel when clicking number buttons sequentially', () => {
+  it('12 -> 12', () => {
     render(<CalculatorApp />)
     fireEvent.click(getButton('1'))
     fireEvent.click(getButton('2'))
     expect(getPanel().textContent).toBe('12')
   })
-  it('appends value to negative number in panel when clicking number buttons sequentially', () => {
+  it('-11 -> -11', () => {
     render(<CalculatorApp />)
     fireEvent.click(getButton('-'))
     fireEvent.click(getButton('1'))
