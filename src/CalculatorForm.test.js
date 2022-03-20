@@ -59,4 +59,9 @@ describe('CalculatorForm', () => {
     fireEvent.click(equalButton)
     expect(onCalculate).toBeCalled()
   })
+  it('calls onClear when the CR button is clicked', () => {
+    const { clearButton } = setup()
+    fireEvent.click(clearButton)
+    expect(onClear).toBeCalled()
+  })
 })
