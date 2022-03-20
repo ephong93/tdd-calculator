@@ -25,4 +25,13 @@ describe('Calculator', () => {
     calculator.append('0')
     expect(calculator.value).toBe('0')
   })
+  it('add sign', () => {
+    const calculator = new Calculator()
+    calculator.append('+')
+    expect(calculator.value).toBe('0')
+    calculator.append('-')
+    expect(calculator.value).toBe('-0')
+    calculator.append('+')
+    expect(calculator.value).toBe('0')
+  })
 })
