@@ -22,8 +22,11 @@ describe('CalculatorForm', () => {
   })
   it('calls onAppend when a number button or operation button is clicked', () => {
     render(<CalculatorForm onAppend={onAppend} />)
-    const numberButton = screen.getByText('0')
-    fireEvent.click(numberButton)
-    expect(onAppend).toBeCalledWith('0')
+    const numberButtons = screen.getAllByTestId('number-button')
+    numberButtons.forEach(numberButton => {
+      fireEvent.click(numberButton)
+      const value = numberButton.textContent
+      expect(onAppend).toBeCalledWith(value)
+    })
   })
 })

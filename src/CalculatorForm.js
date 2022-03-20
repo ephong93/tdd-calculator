@@ -3,7 +3,7 @@ const CalculatorForm = ({
 }) => {
   return (
     <div>
-      <button onClick={() => onAppend('0')}>0</button>
+      <button data-testid='number-button' onClick={() => onAppend('0')}>0</button>
       <button>1</button>
       <button>2</button>
       <button>3</button>
