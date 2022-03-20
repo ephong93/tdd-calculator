@@ -36,29 +36,25 @@ const CalculatorApp = () => {
   }
   
   const calculateMulDiv = (aValue) => {
-    let i = aValue.length - 1
-    while (i >= 0) {
+    for (let i = aValue.length - 1; i >= 0; i--) {
       if (aValue[i] === '*') {
         return calculateMulDiv(aValue.substring(0, i)) * calculateMulDiv(aValue.substring(i+1, aValue.length))
       }
       if (aValue[i] === '/') {
         return calculateMulDiv(aValue.substring(0, i)) / calculateMulDiv(aValue.substring(i+1, aValue.length))
       }
-      i -= 1
     }
     return parseFloat(aValue)
   }
 
   const calculate = (aValue) => {
-    let i = aValue.length - 1
-    while (i >= 0) {
+    for (let i = aValue.length - 1; i >= 0; i--) {
       if (aValue[i] === '+') {
         return calculate(aValue.substring(0, i)) + calculate(aValue.substring(i+1, aValue.length))
       }
       if (aValue[i] === '-') {
         return calculate(aValue.substring(0, i)) - calculate(aValue.substring(i+1, aValue.length))
       }
-      i -= 1
     }
     return calculateMulDiv(aValue)
   }
