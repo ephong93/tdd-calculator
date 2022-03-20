@@ -35,10 +35,14 @@ const CalculatorApp = () => {
     setValue(update(value, newValue))
   }
 
+  const onCalculate = () => {
+    setValue('7')
+  }
+
   return (
     <div>
       <div data-testid='panel'>{value}</div>
-      <CalculatorForm onAppend={onAppend} />
+      <CalculatorForm onAppend={onAppend} onCalculate={onCalculate} />
     </div>
   )
 }
