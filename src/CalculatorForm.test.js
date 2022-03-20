@@ -4,9 +4,10 @@ import { render, screen, fireEvent } from '@testing-library/react'
 describe('CalculatorForm', () => {
   const onAppend = jest.fn()
   const onCalculate = jest.fn()
+  const onClear = jest.fn()
   
   const setup = () => {
-    render(<CalculatorForm onAppend={onAppend} onCalculate={onCalculate} />)
+    render(<CalculatorForm onAppend={onAppend} onCalculate={onCalculate} onClear={onClear} />)
     const numberButtons = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].map(number =>
       screen.getByRole('button', { name: number })
     )
@@ -14,10 +15,12 @@ describe('CalculatorForm', () => {
       screen.getByRole('button', { name: operation })
     )
     const equalButton = screen.getByRole('button', { name: '=' })
+    const clearButton = screen.getByRole('button', { name: 'CR' })
     return {
       numberButtons,
       operationButtons,
-      equalButton
+      equalButton,
+      clearButton
     }
   }
   it('renders number buttons', () => {
