@@ -34,6 +34,17 @@ const CalculatorApp = () => {
   const onAppend = (newValue) => {
     setValue(update(value, newValue))
   }
+  
+  const calculateMulDiv = (aValue) => {
+    let i = aValue.length - 1
+    while (i >= 0) {
+      if (aValue[i] === '*') {
+        return calculateMulDiv(aValue.substring(0, i)) * calculateMulDiv(aValue.substring(i+1, aValue.length))
+      }
+      i -= 1
+    }
+    return parseInt(aValue)
+  }
 
   const calculate = (aValue) => {
     let i = aValue.length - 1
@@ -46,7 +57,7 @@ const CalculatorApp = () => {
       }
       i -= 1
     }
-    return parseInt(aValue)
+    return calculateMulDiv(aValue)
   }
 
   const onCalculate = () => {
