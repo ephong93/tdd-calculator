@@ -174,3 +174,15 @@ describe('calculate', () => {
     expect(getPanel().textContent).toBe('-0.5')
   })
 })
+
+describe('clear', () => {
+  it('clears the value if clear button is clicked', () => {
+    render(<CalculatorApp />)
+    fireEvent.click(getButton('1'))
+    fireEvent.click(getButton('*'))
+    fireEvent.click(getButton('2'))
+    fireEvent.click(getButton('/'))
+    fireEvent.click(getButton('CR'))
+    expect(getPanel().textContent).toBe('0')
+  })
+})

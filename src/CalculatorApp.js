@@ -63,10 +63,18 @@ const CalculatorApp = () => {
     setValue(calculate(value))
   }
 
+  const onClear = () => {
+    setValue('0')
+  }
+
   return (
     <div>
       <div data-testid='panel'>{value}</div>
-      <CalculatorForm onAppend={onAppend} onCalculate={onCalculate} />
+      <CalculatorForm
+        onAppend={onAppend}
+        onCalculate={onCalculate}
+        onClear={onClear}
+      />
     </div>
   )
 }
