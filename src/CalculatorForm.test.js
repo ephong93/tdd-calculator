@@ -28,5 +28,12 @@ describe('CalculatorForm', () => {
       const value = numberButton.textContent
       expect(onAppend).toBeCalledWith(value)
     })
+    
+    const operationButtons = screen.getAllByTestId('operation-button')
+    operationButtons.forEach(operationButton => {
+      fireEvent.click(operationButton)
+      const value = operationButton.textContent
+      expect(onAppend).toBeCalledWith(value)
+    })
   })
 })
