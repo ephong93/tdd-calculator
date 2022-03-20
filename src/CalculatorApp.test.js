@@ -73,3 +73,15 @@ describe('append number', () => {
     expect(getPanel().textContent).toBe('-11')
   })
 })
+
+describe('append operations', () => {
+  it('-1-1', () => {
+    render(<CalculatorApp />)
+    fireEvent.click(getButton('-'))
+    fireEvent.click(getButton('1'))
+    fireEvent.click(getButton('-'))
+    expect(getPanel().textContent).toBe('-1-')
+    fireEvent.click(getButton('1'))
+    expect(getPanel().textContent).toBe('-1-1')
+  })
+})
