@@ -13,4 +13,9 @@ describe('Calculator', () => {
     expect(calculator.isOperation('+')).toBe(true)
     expect(calculator.isOperation('#')).toBe(false)
   })
+  it('update value for number initially', () => {
+    const calculator = new Calculator()
+    calculator.append('1')
+    expect(calculator.value).toBe('1')
+  })
 })

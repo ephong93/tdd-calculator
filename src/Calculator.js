@@ -10,6 +10,12 @@ class Calculator {
   isOperation(value) {
     return ['-', '+', '*', '/'].includes(value)
   }
+
+  append(value) {
+    if (this.value === '0') {
+      this.value = value
+    }
+  }
 }
 
 export default Calculator
