@@ -4,25 +4,29 @@ import { render, screen, fireEvent } from '@testing-library/react'
 describe('CalculatorForm', () => {
   const onAppend = jest.fn()
   const onCalculate = jest.fn()
+  
+  const setup = () => {
+    render(<CalculatorForm onAppend={onAppend} onCalculate={onCalculate} />)
+  }
   it('renders number buttons', () => {
-    render(<CalculatorForm />)
+    setup()
     for (let i = 0; i <= 9; i++) {
       expect(screen.getByText(i)).toBeTruthy()
     }
   })
   it('renders operation buttons', () => {
-    render(<CalculatorForm />)
+    setup()
     expect(screen.getByText('+')).toBeTruthy()
     expect(screen.getByText('-')).toBeTruthy()
     expect(screen.getByText('/')).toBeTruthy()
     expect(screen.getByText('*')).toBeTruthy()
   })
   it('renders equal button', () => {
-    render(<CalculatorForm />)
+    setup()
     expect(screen.getByText('=')).toBeTruthy()
   })
   it('calls onAppend when a number button or operation button is clicked', () => {
-    render(<CalculatorForm onAppend={onAppend} />)
+    setup()
     const numberButtons = screen.getAllByTestId('number-button')
     numberButtons.forEach(numberButton => {
       fireEvent.click(numberButton)
@@ -38,7 +42,7 @@ describe('CalculatorForm', () => {
     })
   })
   it('calls calculate when a equal button is clicked', () => {
-    render(<CalculatorForm onAppend={onAppend} onCalculate={onCalculate} />)
+    setup()
     const equalButton = screen.getByTestId('equal-button')
     fireEvent.click(equalButton)
     expect(onCalculate).toBeCalled()
