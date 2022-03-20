@@ -35,15 +35,15 @@ const CalculatorApp = () => {
     setValue(update(value, newValue))
   }
 
-  const parse = (aValue) => {
-    return [aValue]
-  }
-
   const calculate = (aValue) => {
-    const tokens = parse(aValue)
-    if (tokens.length === 1) {
-      return tokens[0]
+    let i = aValue.length - 1
+    while (i >= 0) {
+      if (aValue[i] === '+') {
+        return calculate(aValue.substring(0, i)) + calculate(aValue.substring(i+1, aValue.length))
+      }
+      i -= 1
     }
+    return parseInt(aValue)
   }
 
   const onCalculate = () => {
