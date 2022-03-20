@@ -19,10 +19,10 @@ describe('CalculatorApp', () => {
     expect(screen.getByTestId('panel')).toBeTruthy()
     expect(screen.getByTestId('panel').textContent).toBe('0')
   })
-  /*
   it('update value in panel when clicking the buttons', () => {
+    render(<CalculatorApp />)
     const aNumberButton = screen.getByRole('button', { name: '1'})
-
+    fireEvent.click(aNumberButton)
+    expect(screen.getByTestId('panel').textContent).toBe('1')
   })
-  */
 })

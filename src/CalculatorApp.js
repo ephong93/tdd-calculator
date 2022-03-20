@@ -3,10 +3,17 @@ import { useState } from 'react'
 
 const CalculatorApp = () => {
   const [value, setValue] = useState('0')
+  const onAppend = (newValue) => {
+    setValue(prevValue => {
+      if (prevValue === '0') {
+        setValue(newValue)
+      }
+    })
+  }
   return (
     <div>
       <div data-testid='panel'>{value}</div>
-      <CalculatorForm />
+      <CalculatorForm onAppend={onAppend} />
     </div>
   )
 }
