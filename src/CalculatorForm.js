@@ -21,7 +21,7 @@ const CalculatorForm = ({
         >
           {number}
         </button>
-      )})
+      )}
       { operationArray.map(operation =>
         <button
           key={operation}
@@ -29,7 +29,7 @@ const CalculatorForm = ({
         >
           {operation}
         </button>
-      )})
+      )}
       <button
         onClick={onCalculate}
       >
