@@ -13,10 +13,10 @@ const CalculatorForm = ({
       <button data-testid='number-button' onClick={() => onAppend('7')}>7</button>
       <button data-testid='number-button' onClick={() => onAppend('8')}>8</button>
       <button data-testid='number-button' onClick={() => onAppend('9')}>9</button>
-      <button data-testid='number-button' onClick={() => onAppend('+')}>+</button>
-      <button data-testid='number-button' onClick={() => onAppend('-')}>-</button>
-      <button data-testid='number-button' onClick={() => onAppend('*')}>*</button>
-      <button data-testid='number-button' onClick={() => onAppend('/')}>/</button>
+      <button data-testid='operation-button' onClick={() => onAppend('+')}>+</button>
+      <button data-testid='operation-button' onClick={() => onAppend('-')}>-</button>
+      <button data-testid='operation-button' onClick={() => onAppend('*')}>*</button>
+      <button data-testid='operation-button' onClick={() => onAppend('/')}>/</button>
       <button>=</button>
     </div>
   )
