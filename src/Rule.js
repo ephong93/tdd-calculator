@@ -1,8 +1,8 @@
 class Rule {
-  operate() {
+  operate(a, b) {
 
   }
-  check() {
+  check(a, b) {
 
   }
 }
