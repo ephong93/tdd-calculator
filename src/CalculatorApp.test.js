@@ -19,6 +19,9 @@ describe('CalculatorApp', () => {
     expect(screen.getByTestId('panel')).toBeTruthy()
     expect(screen.getByTestId('panel').textContent).toBe('0')
   })
+})
+
+describe('update to zero', () => {
   it('initially updates value in panel when clicking a button', () => {
     render(<CalculatorApp />)
     const numberButton = screen.getByRole('button', { name: '1'})
@@ -40,5 +43,14 @@ describe('CalculatorApp', () => {
     expect(screen.getByTestId('panel').textContent).toBe('0')
     fireEvent.click(numberButton0)
     expect(screen.getByTestId('panel').textContent).toBe('0')
+  })
+  it('adds sign properly', () => {
+    render(<CalculatorApp />)
+    const plusSignButton = screen.getByRole('button', { name: '+' })
+    fireEvent.click(plusSignButton)
+    expect(screen.getByTestId('panel').textContent).toBe('0')
+    const minusSignButton = screen.getByRole('button', { name: '-' })
+    fireEvent.click(minusSignButton)
+    expect(screen.getByTestId('panel').textContent).toBe('-0')
   })
 })
