@@ -35,8 +35,19 @@ const CalculatorApp = () => {
     setValue(update(value, newValue))
   }
 
+  const parse = (aValue) => {
+    return [aValue]
+  }
+
+  const calculate = (aValue) => {
+    const tokens = parse(aValue)
+    if (tokens.length === 1) {
+      return tokens[0]
+    }
+  }
+
   const onCalculate = () => {
-    setValue('7')
+    setValue(calculate(value))
   }
 
   return (

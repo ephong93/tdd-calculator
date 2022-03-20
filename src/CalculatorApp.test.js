@@ -103,14 +103,10 @@ describe('append operations', () => {
 })
 
 describe('calculate', () => {
-  it('1+2*3 = 7', () => {
+  it('1 = 1', () => {
     render(<CalculatorApp />)
     fireEvent.click(getButton('1'))
-    fireEvent.click(getButton('+'))
-    fireEvent.click(getButton('2'))
-    fireEvent.click(getButton('*'))
-    fireEvent.click(getButton('3'))
     fireEvent.click(getButton('='))
-    expect(getPanel().textContent).toBe('7')
+    expect(getPanel().textContent).toBe('1')
   })
 })
