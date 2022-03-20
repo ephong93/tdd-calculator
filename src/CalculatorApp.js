@@ -41,6 +41,9 @@ const CalculatorApp = () => {
       if (aValue[i] === '*') {
         return calculateMulDiv(aValue.substring(0, i)) * calculateMulDiv(aValue.substring(i+1, aValue.length))
       }
+      if (aValue[i] === '/') {
+        return calculateMulDiv(aValue.substring(0, i)) / calculateMulDiv(aValue.substring(i+1, aValue.length))
+      }
       i -= 1
     }
     return parseInt(aValue)
