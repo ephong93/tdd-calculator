@@ -219,3 +219,14 @@ describe('clear', () => {
     expect(getPanel().textContent).toBe('0')
   })
 })
+
+describe('ERROR', () => {
+  it('divided by zero', () => {
+    render(<CalculatorApp />)
+    fireEvent.click(getButton('1'))
+    fireEvent.click(getButton('/'))
+    fireEvent.click(getButton('0'))
+    fireEvent.click(getButton('='))
+    expect(getPanel().textContent).toBe('ERROR')
+  })
+})

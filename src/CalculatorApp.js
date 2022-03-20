@@ -46,7 +46,10 @@ const CalculatorApp = () => {
         return calculateMulDiv(aValue.substring(0, i)) * calculateMulDiv(aValue.substring(i+1, aValue.length))
       }
       if (aValue[i] === '/') {
-        return calculateMulDiv(aValue.substring(0, i)) / calculateMulDiv(aValue.substring(i+1, aValue.length))
+        const a = calculateMulDiv(aValue.substring(0, i))
+        const b = calculateMulDiv(aValue.substring(i+1, aValue.length))
+        if (b === 0) throw Error('Divided by zero!')
+        return a / b
       }
     }
     return parseFloat(aValue)
@@ -66,7 +69,13 @@ const CalculatorApp = () => {
   }
 
   const onCalculate = () => {
-    setValue(calculate(value))
+    setValue(value => {
+      try {
+        return calculate(value)
+      } catch {
+        return 'ERROR'
+      }
+    })
   }
 
   const onClear = () => {
