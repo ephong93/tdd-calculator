@@ -15,6 +15,7 @@ const CalculatorForm = () => {
       <button>-</button>
       <button>*</button>
       <button>/</button>
+      <button>=</button>
     </div>
   )
 }

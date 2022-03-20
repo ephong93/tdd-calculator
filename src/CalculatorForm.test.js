@@ -14,5 +14,6 @@ describe('CalculatorForm', () => {
     expect(screen.getByText('-')).toBeTruthy()
     expect(screen.getByText('/')).toBeTruthy()
     expect(screen.getByText('*')).toBeTruthy()
+    expect(screen.getByText('=')).toBeTruthy()
   })
 })
