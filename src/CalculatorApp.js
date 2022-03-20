@@ -22,6 +22,9 @@ const CalculatorApp = () => {
     if (a === '-0') {
       if (isNumber(b)) return '-' + b
     }
+    if (a.length >= 2 && a[a.length - 1] === '0' && isOperation(a[a.length - 2]) && isNumber(b)) {
+      return a.substring(0, a.length - 1) + b
+    }
     if (isOperation(a[a.length - 1]) && isOperation(b)) {
       return a.substring(0, a.length - 1) + b
     }

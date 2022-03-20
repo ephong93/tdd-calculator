@@ -56,6 +56,14 @@ describe('update to zero', () => {
     fireEvent.click(getButton('1'))
     expect(getPanel().textContent).toBe('-1')
   })
+  it('1+01 -> 1+1', () => {
+    render(<CalculatorApp />)
+    fireEvent.click(getButton('1'))
+    fireEvent.click(getButton('+'))
+    fireEvent.click(getButton('0'))
+    fireEvent.click(getButton('1'))
+    expect(getPanel().textContent).toBe('1+1')
+  })
 })
 
 describe('append number', () => {
