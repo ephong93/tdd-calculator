@@ -18,4 +18,11 @@ describe('Calculator', () => {
     calculator.append('1')
     expect(calculator.value).toBe('1')
   })
+  it('does not update for zero', () => {
+    const calculator = new Calculator()
+    calculator.append('0')
+    expect(calculator.value).toBe('0')
+    calculator.append('0')
+    expect(calculator.value).toBe('0')
+  })
 })
