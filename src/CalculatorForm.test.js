@@ -1,7 +1,8 @@
 import CalculatorForm from './CalculatorForm'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 
 describe('CalculatorForm', () => {
+  const onAppend = jest.fn()
   it('renders number buttons', () => {
     render(<CalculatorForm />)
     for (let i = 0; i <= 9; i++) {
@@ -15,8 +16,14 @@ describe('CalculatorForm', () => {
     expect(screen.getByText('/')).toBeTruthy()
     expect(screen.getByText('*')).toBeTruthy()
   })
-  it('render equal button', () => {
+  it('renders equal button', () => {
     render(<CalculatorForm />)
     expect(screen.getByText('=')).toBeTruthy()
+  })
+  it('calls onAppend when a number button or operation button is clicked', () => {
+    render(<CalculatorForm onAppend={onAppend} />)
+    const numberButton = screen.getByText('0')
+    fireEvent.click(numberButton)
+    expect(onAppend).toBeCalledWith('0')
   })
 })
