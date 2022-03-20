@@ -58,4 +58,4 @@ const update = (a, b) => {
   return a + b
 }
 
-export { calculate, update}
+export { calculate, update }
