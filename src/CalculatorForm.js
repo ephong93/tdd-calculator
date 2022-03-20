@@ -10,13 +10,31 @@ const CalculatorForm = ({
     }
     return result
   }, [])
+
+  const operationArray = useMemo(() => {
+    return ['+', '-', '*', '/']
+  }, [])
+
   return (
     <div>
-      { numberArray.map(number => <button data-testid='number-button' key={number} onClick={() => onAppend(number)}>{number}</button>) })
-      <button data-testid='operation-button' onClick={() => onAppend('+')}>+</button>
-      <button data-testid='operation-button' onClick={() => onAppend('-')}>-</button>
-      <button data-testid='operation-button' onClick={() => onAppend('*')}>*</button>
-      <button data-testid='operation-button' onClick={() => onAppend('/')}>/</button>
+      { numberArray.map(number =>
+        <button
+          data-testid='number-button'
+          key={number}
+          onClick={() => onAppend(number)}
+        >
+          {number}
+        </button>
+      )})
+      { operationArray.map(operation =>
+        <button
+          data-testid='operation-button'
+          key={operation}
+          onClick={() => onAppend(operation)}
+        >
+          {operation}
+        </button>
+      )})
       <button>=</button>
     </div>
   )
