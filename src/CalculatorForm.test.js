@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 
 describe('CalculatorForm', () => {
   const onAppend = jest.fn()
+  const onCalculate = jest.fn()
   it('renders number buttons', () => {
     render(<CalculatorForm />)
     for (let i = 0; i <= 9; i++) {
@@ -35,5 +36,11 @@ describe('CalculatorForm', () => {
       const value = operationButton.textContent
       expect(onAppend).toBeCalledWith(value)
     })
+  })
+  it('calls calculate when a equal button is clicked', () => {
+    render(<CalculatorForm onAppend={onAppend} onCalculate={onCalculate} />)
+    const equalButton = screen.getByTestId('equal-button')
+    fireEvent.click(equalButton)
+    expect(onCalculate).toBeCalled()
   })
 })
