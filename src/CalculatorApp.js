@@ -48,7 +48,7 @@ const CalculatorApp = () => {
   }
 
   const calculate = (aValue) => {
-    for (let i = aValue.length - 1; i >= 0; i--) {
+    for (let i = aValue.length - 1; i >= 1; i--) {
       if (aValue[i] === '+') {
         return calculate(aValue.substring(0, i)) + calculate(aValue.substring(i+1, aValue.length))
       }
