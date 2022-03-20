@@ -8,4 +8,11 @@ describe('CalculatorForm', () => {
       expect(screen.getByText(i)).toBeTruthy()
     }
   })
+  it('renders operation buttons', () => {
+    render(<CalculatorForm />)
+    expect(screen.getByText('+')).toBeTruthy()
+    expect(screen.getByText('-')).toBeTruthy()
+    expect(screen.getByText('/')).toBeTruthy()
+    expect(screen.getByText('*')).toBeTruthy()
+  })
 })
