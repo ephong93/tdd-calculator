@@ -14,4 +14,8 @@ describe('CalculatorApp', () => {
     })
     expect(screen.getByRole('button', { name: '=' })).toBeTruthy()
   })
+  it('renders display', () => {
+    render(<CalculatorApp />)
+    expect(screen.getByTestId('panel')).toBeTruthy()
+  })
 })
