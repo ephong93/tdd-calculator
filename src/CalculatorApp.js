@@ -34,6 +34,11 @@ const CalculatorApp = () => {
   const onAppend = (newValue) => {
     setValue(update(value, newValue))
   }
+
+  const removeSuffixOperations = (aValue) => {
+    if (isOperation(aValue[aValue.length - 1])) return removeSuffixOperations(aValue.substring(0, aValue.length - 1))
+    return aValue
+  }
   
   const calculateMulDiv = (aValue) => {
     for (let i = aValue.length - 1; i >= 0; i--) {
@@ -48,6 +53,7 @@ const CalculatorApp = () => {
   }
 
   const calculate = (aValue) => {
+    aValue = removeSuffixOperations(aValue)
     for (let i = aValue.length - 1; i >= 1; i--) {
       if (aValue[i] === '+') {
         return calculate(aValue.substring(0, i)) + calculate(aValue.substring(i+1, aValue.length))

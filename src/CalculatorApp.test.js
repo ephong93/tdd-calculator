@@ -197,6 +197,15 @@ describe('calculate', () => {
     fireEvent.click(getButton('='))
     expect(getPanel().textContent).toBe('1.5')
   })
+  it('1+2+= -> 3', () => {
+    render(<CalculatorApp />)
+    fireEvent.click(getButton('1'))
+    fireEvent.click(getButton('+'))
+    fireEvent.click(getButton('2'))
+    fireEvent.click(getButton('+'))
+    fireEvent.click(getButton('='))
+    expect(getPanel().textContent).toBe('3')
+  })
 })
 
 describe('clear', () => {
