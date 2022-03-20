@@ -41,6 +41,9 @@ const CalculatorApp = () => {
       if (aValue[i] === '+') {
         return calculate(aValue.substring(0, i)) + calculate(aValue.substring(i+1, aValue.length))
       }
+      if (aValue[i] === '-') {
+        return calculate(aValue.substring(0, i)) - calculate(aValue.substring(i+1, aValue.length))
+      }
       i -= 1
     }
     return parseInt(aValue)
