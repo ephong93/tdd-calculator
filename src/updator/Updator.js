@@ -2,8 +2,8 @@ class Updator {
   constructor() {
     this.rules = []
   }
-  addRule() {
-
+  addRule(rule) {
+    this.rules.push(rule)
   }
   update() {
 
