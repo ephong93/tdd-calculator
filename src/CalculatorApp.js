@@ -15,6 +15,9 @@ const CalculatorApp = () => {
       if (isNumber(b)) return b
       return b
     }
+    if (a === '-0') {
+      if (isNumber(b)) return '-' + b
+    }
     return a + b
   }
 
