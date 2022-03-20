@@ -4,11 +4,7 @@ const CalculatorForm = ({
   onAppend
 }) => {
   const numberArray = useMemo(() => {
-    const result = []
-    for (let i = 0; i <= 9; i++) {
-      result.push(i.toString())
-    }
-    return result
+    return ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
   }, [])
 
   const operationArray = useMemo(() => {
