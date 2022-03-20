@@ -46,7 +46,7 @@ const CalculatorApp = () => {
       }
       i -= 1
     }
-    return parseInt(aValue)
+    return parseFloat(aValue)
   }
 
   const calculate = (aValue) => {
