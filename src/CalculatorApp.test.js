@@ -33,4 +33,12 @@ describe('CalculatorApp', () => {
     fireEvent.click(numberButton2)
     expect(screen.getByTestId('panel').textContent).toBe('12')
   })
+  it('does not update value when initially clicking 0', () => {
+    render(<CalculatorApp />)
+    const numberButton0 = screen.getByRole('button', { name: '0'})
+    fireEvent.click(numberButton0)
+    expect(screen.getByTestId('panel').textContent).toBe('0')
+    fireEvent.click(numberButton0)
+    expect(screen.getByTestId('panel').textContent).toBe('0')
+  })
 })
