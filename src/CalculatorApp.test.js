@@ -84,4 +84,12 @@ describe('append operations', () => {
     fireEvent.click(getButton('1'))
     expect(getPanel().textContent).toBe('-1-1')
   })
+  it('-1-- -> -1-', () => {
+    render(<CalculatorApp />)
+    fireEvent.click(getButton('-'))
+    fireEvent.click(getButton('1'))
+    fireEvent.click(getButton('-'))
+    fireEvent.click(getButton('-'))
+    expect(getPanel().textContent).toBe('-1-')
+  })
 })
