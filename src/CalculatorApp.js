@@ -3,14 +3,14 @@ import { useState } from 'react'
 
 const CalculatorApp = () => {
   const [value, setValue] = useState('0')
+  const update = (a, b) => {
+    if (a === '0') {
+      return b
+    }
+    return a + b
+  }
   const onAppend = (newValue) => {
-    setValue(prevValue => {
-      if (prevValue === '0') {
-        setValue(newValue)
-      } else {
-        setValue(prevValue + newValue)
-      }
-    })
+    setValue(update(value, newValue))
   }
   return (
     <div>
