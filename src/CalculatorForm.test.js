@@ -13,7 +13,6 @@ describe('CalculatorForm', () => {
     const operationButtons = ['+', '-', '*', '/'].map(operation =>
       screen.getByRole('button', { name: operation })
     )
-
     const equalButton = screen.getByRole('button', { name: '=' })
     return {
       numberButtons,
