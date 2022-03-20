@@ -11,5 +11,6 @@ describe('Calculator', () => {
     expect(calculator.isNumber('+')).toBe(false)
     expect(calculator.isOperation('1')).toBe(false)
     expect(calculator.isOperation('+')).toBe(true)
+    expect(calculator.isOperation('#')).toBe(false)
   })
 })

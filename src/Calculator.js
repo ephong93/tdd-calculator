@@ -8,7 +8,7 @@ class Calculator {
   }
 
   isOperation(value) {
-    return isNaN(value)
+    return ['-', '+', '*', '/'].includes(value)
   }
 }
 
