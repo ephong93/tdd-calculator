@@ -1,4 +1,4 @@
-import Rule from './Rule'
+import Rule from './rule'
 
 describe('Rule', () => {
   it('rule has update funciton', () => {

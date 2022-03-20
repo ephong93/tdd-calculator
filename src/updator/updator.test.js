@@ -1,4 +1,4 @@
-import Updator from './Updator'
+import Updator from './updator'
 
 describe('Updator', () => {
   it('Updator has rules', () => {
