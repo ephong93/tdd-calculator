@@ -1,10 +1,15 @@
+import { useMemo } from "react"
+
 const CalculatorForm = ({
   onAppend
 }) => {
-  const numberArray = []
-  for (let i = 0; i <= 9; i++) {
-    numberArray.push(i.toString())
-  }
+  const numberArray = useMemo(() => {
+    const result = []
+    for (let i = 0; i <= 9; i++) {
+      result.push(i.toString())
+    }
+    return result
+  }, [])
   return (
     <div>
       { numberArray.map(number => <button data-testid='number-button' key={number} onClick={() => onAppend(number)}>{number}</button>) })
