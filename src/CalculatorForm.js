@@ -16,7 +16,6 @@ const CalculatorForm = ({
     <div>
       { numberArray.map(number =>
         <button
-          data-testid='number-button'
           key={number}
           onClick={() => onAppend(number)}
         >
@@ -25,7 +24,6 @@ const CalculatorForm = ({
       )})
       { operationArray.map(operation =>
         <button
-          data-testid='operation-button'
           key={operation}
           onClick={() => onAppend(operation)}
         >
@@ -33,7 +31,6 @@ const CalculatorForm = ({
         </button>
       )})
       <button
-        data-testid='equal-button'   
         onClick={onCalculate}
       >
         =
