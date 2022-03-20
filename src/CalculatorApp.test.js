@@ -19,10 +19,18 @@ describe('CalculatorApp', () => {
     expect(screen.getByTestId('panel')).toBeTruthy()
     expect(screen.getByTestId('panel').textContent).toBe('0')
   })
-  it('update value in panel when clicking the buttons', () => {
+  it('initially updates value in panel when clicking a button', () => {
     render(<CalculatorApp />)
-    const aNumberButton = screen.getByRole('button', { name: '1'})
-    fireEvent.click(aNumberButton)
+    const numberButton = screen.getByRole('button', { name: '1'})
+    fireEvent.click(numberButton)
     expect(screen.getByTestId('panel').textContent).toBe('1')
+  })
+  it('appends value in panel when clicking number buttons sequentially', () => {
+    render(<CalculatorApp />)
+    const numberButton1 = screen.getByRole('button', { name: '1'})
+    fireEvent.click(numberButton1)
+    const numberButton2 = screen.getByRole('button', { name: '2'})
+    fireEvent.click(numberButton2)
+    expect(screen.getByTestId('panel').textContent).toBe('12')
   })
 })

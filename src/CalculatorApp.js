@@ -7,6 +7,8 @@ const CalculatorApp = () => {
     setValue(prevValue => {
       if (prevValue === '0') {
         setValue(newValue)
+      } else {
+        setValue(prevValue + newValue)
       }
     })
   }
