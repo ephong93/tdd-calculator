@@ -7,34 +7,45 @@ describe('CalculatorForm', () => {
   
   const setup = () => {
     render(<CalculatorForm onAppend={onAppend} onCalculate={onCalculate} />)
+    const numberButtons = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].map(number =>
+      screen.getByRole('button', { name: number })
+    )
+    const operationButtons = ['+', '-', '*', '/'].map(operation =>
+      screen.getByRole('button', { name: operation })
+    )
+
+    const equalButton = screen.getByRole('button', { name: '=' })
+    return {
+      numberButtons,
+      operationButtons,
+      equalButton
+    }
   }
   it('renders number buttons', () => {
     setup()
     for (let i = 0; i <= 9; i++) {
-      expect(screen.getByText(i)).toBeTruthy()
+      expect(screen.getByRole('button', { name: i })).toBeTruthy()
     }
   })
   it('renders operation buttons', () => {
     setup()
-    expect(screen.getByText('+')).toBeTruthy()
-    expect(screen.getByText('-')).toBeTruthy()
-    expect(screen.getByText('/')).toBeTruthy()
-    expect(screen.getByText('*')).toBeTruthy()
+    expect(screen.getByRole('button', { name: '+'})).toBeTruthy()
+    expect(screen.getByRole('button', { name: '-'})).toBeTruthy()
+    expect(screen.getByRole('button', { name: '*'})).toBeTruthy()
+    expect(screen.getByRole('button', { name: '/'})).toBeTruthy()
   })
   it('renders equal button', () => {
     setup()
-    expect(screen.getByText('=')).toBeTruthy()
+    expect(screen.getByRole('button', {name: '='})).toBeTruthy()
   })
   it('calls onAppend when a number button or operation button is clicked', () => {
-    setup()
-    const numberButtons = screen.getAllByTestId('number-button')
+    const { numberButtons, operationButtons } = setup()
     numberButtons.forEach(numberButton => {
       fireEvent.click(numberButton)
       const value = numberButton.textContent
       expect(onAppend).toBeCalledWith(value)
     })
     
-    const operationButtons = screen.getAllByTestId('operation-button')
     operationButtons.forEach(operationButton => {
       fireEvent.click(operationButton)
       const value = operationButton.textContent
@@ -42,8 +53,7 @@ describe('CalculatorForm', () => {
     })
   })
   it('calls calculate when a equal button is clicked', () => {
-    setup()
-    const equalButton = screen.getByTestId('equal-button')
+    const { equalButton } = setup()
     fireEvent.click(equalButton)
     expect(onCalculate).toBeCalled()
   })
